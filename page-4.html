@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <title>CUARTO</title>
+        <meta name="description" content="Evaluación de cierre de la Unidad I: Bocetos de introducción a la programación" />
+    </head>
+    <body>
+        <nav>
+            <a href="index.html"><span class="miNombre">Valentina Ochoa</span></a>
+            <a href="page-1.html">Primero</a>
+            <a href="page-2.html">Segundo</a>
+            <a href="page-3.html">Tercero</a>
+            <a href="page-4.html">Cuarto</a>
+        </nav>
+        <main></main>
+        <script>
+let x;
+let y;
+let xspeed;
+let yspeed;
+let dvd;
+let r, g, b;
+
+function preload() {
+  dvd = loadImage('https://raw.githubusercontent.com/profesorfaco/front-2023-1/main/sesion_03/dvd.png');
+}
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+    selectAll('a')[4].addClass('aqui');
+  x = random(width);
+  y = random(height);
+  xspeed = 5;
+  yspeed = 5;
+  pickColor();
+    
+}
+
+function pickColor() {
+  r = random(0, 200);
+  g = random(50, 100);
+  b = random(100, 150);
+}
+
+function draw() {
+  background(255, 209, 220);
+  tint(r, g, b);
+  image(dvd, x, y);
+  x = x + xspeed;
+  y = y + yspeed;
+  if (x + dvd.width >= width) {
+    xspeed = -xspeed;
+    x = width - dvd.width;
+    pickColor();
+  } else if (x <= 0) {
+    xspeed = -xspeed;
+    x = 0;
+    pickColor();
+  }
+
+  if (y + dvd.height >= height) {
+    yspeed = -yspeed;
+    y = height - dvd.height;
+    pickColor();
+  } else if (y <= 0) {
+    yspeed = -yspeed;
+    y = 0;
+    pickColor();
+  }
+}
+            function windowResized() {
+                resizeCanvas(windowWidth, windowHeight);
+            }
+        </script>
+    </body>
+</html>

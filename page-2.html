@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <title>SEGUNDO</title>
+        <meta name="description" content="Evaluación de cierre de la Unidad I: Bocetos de introducción a la programación" />
+    </head>
+    <body>
+        <nav>
+            <a href="index.html"><span class="miNombre">Valentina Ochoa</span></a>
+            <a href="page-1.html">Primero</a>
+            <a href="page-2.html">Segundo</a>
+            <a href="page-3.html">Tercero</a>
+            <a href="page-4.html">Cuarto</a>
+        </nav>
+        <main></main>
+   <div>
+       
+        </div>
+        <script>
+            
+var slider1;
+var slider2;
+var slider3;
+
+function setup() { 
+  createCanvas(windowWidth, windowHeight);
+    selectAll('a')[2].addClass('aqui');
+	slider1 = createSlider(0, 255, 0);
+  slider1.position(500, 280);
+	slider2 = createSlider(0, 255, 0);
+  slider2.position(500, 300);
+	slider3 = createSlider(0, 255, 0);
+  slider3.position(500, 320);
+	fill('white');
+} 
+
+function draw() { 
+	var r = slider1.value();
+	var g = slider2.value();
+	var b = slider3.value();
+	background(+r, +g, +b);
+      textFont('PT Sans Narrow');
+    textSize(20);
+	text('Ajustes de Red: '+r,150,295);
+	text('Ajustes de Green: '+g,150,315);
+	text('Ajustes de Blue: '+b,150,335);
+    text("R " + slider1.value() + " G " + slider2.value() + " B " + slider3.value(), windowWidth / 2, windowHeight - 40);
+
+}
+              function windowResized() {
+                resizeCanvas(windowWidth, windowHeight);
+            }
+        </script>
+    </body>
+</html>
